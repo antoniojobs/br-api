@@ -32,7 +32,7 @@ const estados = [
     { nome: 'Tocantins', sigla: 'TO' }
 ];
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.send({'estados':estados})
 })
 
 app.listen(port, () => {
