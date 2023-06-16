@@ -1,5 +1,6 @@
-const express = require('express');
-const app = express();
+const express = require('express')
+const app = express()
+const port = 3000
 
 const estados = [
     { nome: 'Acre', sigla: 'AC' },
@@ -30,12 +31,10 @@ const estados = [
     { nome: 'Sergipe', sigla: 'SE' },
     { nome: 'Tocantins', sigla: 'TO' }
 ];
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
 
-app.get('/estados', (req, res) => {
-    res.json(estados);
-});
-
-const PORT = 3000;
-app.listen(PORT, () => {
-    console.log(`Servidor rodando na porta ${PORT}`);
-});
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
