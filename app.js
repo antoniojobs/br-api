@@ -1,40 +1,35 @@
-const express = require('express')
-const app = express()
-const port = 3000
+const http = require('http');
 
-const estados = [
-    { nome: 'Acre', sigla: 'AC' },
-    { nome: 'Alagoas', sigla: 'AL' },
-    { nome: 'Amapá', sigla: 'AP' },
-    { nome: 'Amazonas', sigla: 'AM' },
-    { nome: 'Bahia', sigla: 'BA' },
-    { nome: 'Ceará', sigla: 'CE' },
-    { nome: 'Distrito Federal', sigla: 'DF' },
-    { nome: 'Espírito Santo', sigla: 'ES' },
-    { nome: 'Goiás', sigla: 'GO' },
-    { nome: 'Maranhão', sigla: 'MA' },
-    { nome: 'Mato Grosso', sigla: 'MT' },
-    { nome: 'Mato Grosso do Sul', sigla: 'MS' },
-    { nome: 'Minas Gerais', sigla: 'MG' },
-    { nome: 'Pará', sigla: 'PA' },
-    { nome: 'Paraíba', sigla: 'PB' },
-    { nome: 'Paraná', sigla: 'PR' },
-    { nome: 'Pernambuco', sigla: 'PE' },
-    { nome: 'Piauí', sigla: 'PI' },
-    { nome: 'Rio de Janeiro', sigla: 'RJ' },
-    { nome: 'Rio Grande do Norte', sigla: 'RN' },
-    { nome: 'Rio Grande do Sul', sigla: 'RS' },
-    { nome: 'Rondônia', sigla: 'RO' },
-    { nome: 'Roraima', sigla: 'RR' },
-    { nome: 'Santa Catarina', sigla: 'SC' },
-    { nome: 'São Paulo', sigla: 'SP' },
-    { nome: 'Sergipe', sigla: 'SE' },
-    { nome: 'Tocantins', sigla: 'TO' }
-];
-app.get('/', (req, res) => {
-  res.send({'estados':estados})
-})
+const server = http.createServer((req, res) => {
+  // Define o cabeçalho Content-Type como texto plano UTF-8
+  res.setHeader('Content-Type', 'text/plain; charset=utf-8');
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+  // Envia o texto em UTF-8 como resposta
+  res.end(`
+  
+Felicidade foi-se embora
+E a saudade no meu peito ainda mora
+E é por isso que eu gosto lá de fora
+Porque eu sei que a falsidade não vigora
+
+A minha casa fica lá detrás do mundo
+Onde eu vou num segundo quando começo a cantar
+O pensamento parece uma coisa à toa
+mas como é que a gente voa quando começa a pensar
+
+Felicidade foi-se embora
+E a saudade no meu peito ainda mora
+E é por isso que eu gosto lá de fora
+Porque eu sei que a falsidade não vigora
+
+Na minha casa tem um cavalo tordilho
+que é irmão do que é filho daquele que o Juca tem
+E quando pego o meu cavalo e o encilho
+Sou pior que limpa trilho e corro na frente do trem.
+
+  `);
+});
+
+server.listen(3000, () => {
+  console.log('Servidor ouvindo na porta 3000');
+});
